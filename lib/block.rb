@@ -5,7 +5,7 @@ class Block
   attr_reader :timestamps, :hash
 
   def initialize(transaction)
-    @index = 0
+    @index = 1
     @previous_hash= ''
     @transaction = transaction.to_json
     @timestamps = "#{Time.now()}"
@@ -20,8 +20,8 @@ class Block
       @hash = sha256(@index.to_s + @timestamps + @transaction + @previous_hash + @nonce.to_s)
   end
 
-  def mine_block()
-    while @hash[-2..-1] != '00' do
+  def mine_block(difficulty)
+    while @hash[0..difficulty-1] != '0'*difficulty do
       @nonce+=1
       puts @hash
       self.calculate_hash

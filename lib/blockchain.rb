@@ -5,7 +5,7 @@ class BlockChain
 
   def initialize()
     @chain = [create_genesis_block()]
-    # @difficulty = 4
+    @difficulty = 4
   end
 
   def create_genesis_block
@@ -20,10 +20,10 @@ class BlockChain
 
   def add_block(transaction)
     block = Block.new(transaction)
-    block.index = @chain.size
+    block.index = @chain.size+1
     block.previous_hash = @chain.last.hash
     block.calculate_hash
-    block.mine_block()
+    block.mine_block(@difficulty)
     @chain << block
   end
 
