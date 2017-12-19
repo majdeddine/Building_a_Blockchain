@@ -5,6 +5,8 @@ class Block
   attr_reader :timestamps, :hash, :nonce
 
   def initialize(transaction)
+    @index = 0
+    @previous_hash= ''
     @transaction = transaction.to_json
     @timestamps = "#{Time.now()}"
     @nonce = 0
