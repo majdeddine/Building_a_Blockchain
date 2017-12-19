@@ -15,13 +15,18 @@ class Block
   def sha256(hash)
     Digest::SHA256.hexdigest(hash).to_s
   end
+
   def calculate_hash
       @hash = sha256(@index.to_s + @timestamps + @transaction + @previous_hash + @nonce.to_s)
   end
 
+  def mine_block(difficulty)
+
+    while @hash[0..difficulty] != ['0'*difficulty] do
+      @nonce+=1
+      calculate_hash
+    end
+  end
+  end
 
 end
-
-{sender: "8527147fe1f5426f9dd545de4b27ee00",
-recipient: "a77f5cdfa2934df3954a5c7c7da5df1f",
-amount: 5}
