@@ -27,4 +27,12 @@ class BlockChain
     @chain << block
   end
 
+  def self.create
+    @blockchain = BlockChain.new
+  end
+
+  def self.instance
+    @blockchain
+  end
+
 end

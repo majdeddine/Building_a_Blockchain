@@ -23,7 +23,7 @@ class Block
   def mine_block(difficulty)
     while @hash[0..difficulty-1] != '0'*difficulty do
       @nonce+=1
-      puts @hash
+      # puts @hash
       self.calculate_hash
 
     end
