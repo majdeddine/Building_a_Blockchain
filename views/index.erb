@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>welcome to blockchain</title>
+  </head>
+  <body>
+    <h1> welcome to blockchain, nerds</h1>
+
+    <% @chain.each do |block| %>
+    Index: <br>
+    <%= block.index %>   <br>
+    Previous Hash: <br>
+    <%= block.previous_hash unless block.index == 1 %> <br>
+    Timestamp: <br>
+    <%= block.timestamps %>   <br>
+    Transaction: <br>
+    <%= block.transaction unless block.index == 1 %>   <br>
+    Nonce: <br>
+    <%= block.nonce %>   <br>
+    Hash: <br>
+    <%= block.hash %>  <br>
+    ******* END OF BLOCK *******
+    <%end%>
+
+
+  </body>
+</html>
