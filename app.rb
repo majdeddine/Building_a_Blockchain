@@ -8,7 +8,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    @blockchain = BlockChain.instance
+    @blockchain = BlockChain.new
   end
 
   get '/transaction' do

@@ -1,7 +1,7 @@
 require 'digest'
 require 'json'
 class Block
-  attr_accessor :index, :previous_hash, :nonce
+  attr_accessor :index, :previous_hash, :nonce, :transaction
   attr_reader :timestamps, :hash
 
   def initialize(transaction)
