@@ -3,7 +3,7 @@ class BlockChain
   attr_accessor :difficulty
   attr_reader :chain
 
-  def initialize()
+  def initialize
     @chain = [create_genesis_block()]
     @difficulty = 4
   end
@@ -13,6 +13,7 @@ class BlockChain
     block.calculate_hash
     return block
   end
+
 
   def last_block
     return @chain.last
@@ -32,7 +33,8 @@ class BlockChain
   end
 
   def self.instance
-    @blockchain
+   @blockchain
+  
   end
 
 end
