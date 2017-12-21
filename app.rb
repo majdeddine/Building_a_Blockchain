@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require './lib/blockchain.rb'
+require './lib/user'
+require './lib/transaction'
 
 class App < Sinatra::Base
 
