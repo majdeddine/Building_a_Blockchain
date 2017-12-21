@@ -35,7 +35,7 @@ class BlockChain
 
   def mine_pending_transactions
     if @transactions.length > 0
-      transaction = @transactions[0]
+      transaction = @transactions.shift
       add_block(transaction)
     end
   end

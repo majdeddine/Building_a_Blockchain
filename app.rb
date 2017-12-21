@@ -23,8 +23,9 @@ class App < Sinatra::Base
     redirect '/'
   end
 
-  get '/mine/new' do
-
+  get '/mine' do
+    @blockchain.mine_pending_transactions
+    redirect '/'
   end
 
 end
