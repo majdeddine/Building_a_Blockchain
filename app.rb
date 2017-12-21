@@ -19,7 +19,12 @@ class App < Sinatra::Base
   end
 
   post '/transaction/new' do
-    @blockchain.add_block({sender: params[:sender], recipient: params[:recipient], amount: params[:amount]})
+    @blockchain.add_transaction(params[:recipient], params[:sender], params[:amount])
     redirect '/'
   end
+
+  get '/mine/new' do
+
+  end
+
 end

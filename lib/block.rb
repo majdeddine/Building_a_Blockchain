@@ -25,7 +25,6 @@ class Block
       @nonce+=1
       # puts @hash
       self.calculate_hash
-
     end
   end
 

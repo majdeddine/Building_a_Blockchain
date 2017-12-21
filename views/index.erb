@@ -8,6 +8,14 @@
     <h1> welcome to blockpain, nerds</h1>
     <a href="/transaction/new"> new transaction</a> <br><br>
 
+    <h3>Pending transactions:</h3>
+      <% @blockchain.transactions.each do |transaction| %>
+        <%= transaction %>   <br>
+      <%end%>
+
+    ________________________________________<br><br>
+
+
     <% @chain.each do |block| %>
       Index: <br>
       <%= block.index %>   <br>
