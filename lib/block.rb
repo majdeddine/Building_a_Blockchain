@@ -2,7 +2,7 @@ require 'digest'
 require 'json'
 class Block
   attr_accessor :index, :previous_hash, :nonce, :transaction
-  attr_reader :timestamps, :hash
+  attr_reader :timestamps, :hash, :hashes
 
   def initialize(transaction)
     @index = 1
@@ -10,6 +10,7 @@ class Block
     @transaction = transaction.to_json
     @timestamps = "#{Time.now()}"
     @nonce = 0
+    @hashes = []
   end
 
   def sha256(hash)
@@ -21,9 +22,10 @@ class Block
   end
 
   def mine_block(difficulty)
+    @hashes = []
     while @hash[0..difficulty-1] != '0'*difficulty do
       @nonce+=1
-      # puts @hash
+      @hashes << @hash
       self.calculate_hash
     end
   end

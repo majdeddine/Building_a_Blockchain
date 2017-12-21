@@ -3,17 +3,50 @@
   <head>
     <meta charset="utf-8">
     <title>welcome to blockchain</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+      #wrap {
+          position: absolute;
+          z-index: 999999;
+          right: 0;
+          height: 60%;
+          text-align: center;
+          display: table;
+      }
+
+      #inside {
+          width: 900px;
+          height: 300px;
+          vertical-align: middle;
+          /* transform: rotate(30deg); */
+          /* overflow: scroll; */
+          overflow:   auto;
+
+      }
+    </style>
   </head>
   <body>
     <h1> welcome to blockpain, nerds</h1>
     <a href="/transaction/new"> New transaction</a> <br><br>
     <a href="/mine"> Mine </a> <br><br>
+
+    <h3>Mine:</h3>
+    <div id=wrap>
+      <div id=inside>
+        <% @chain.each do |block| %>
+          <%= block.hashes %> <br>
+        <%end%>
+      </div>
+    </div>
+    ________________________________________<br><br>
+
     <h3>Pending transactions:</h3>
       <% @blockchain.transactions.each do |transaction| %>
         <%= transaction %>   <br>
       <%end%>
-
     ________________________________________<br><br>
+
+
 
 
     <% @chain.each do |block| %>
