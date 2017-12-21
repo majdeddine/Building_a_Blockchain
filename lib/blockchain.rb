@@ -33,8 +33,8 @@ class BlockChain
   end
 
   def self.instance
-   @blockchain
-  
+   @blockchain ||= self.create
+
   end
 
 end

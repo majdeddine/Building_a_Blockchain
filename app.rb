@@ -8,23 +8,16 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    @blockchain = BlockChain.create
-
-  end
-
-  get '/transaction' do
-    @chain = @blockchain.chain
+    @chain = @blockchain.chain.reverse
     erb :index
   end
 
   get '/transaction/new' do
-
-    erb :new
+  erb :new
   end
 
   post '/transaction/new' do
-
     @blockchain.add_block({sender: params[:sender], recipient: params[:recipient], amount: params[:amount]})
-    redirect '/transaction'
+    redirect '/'
   end
 end
