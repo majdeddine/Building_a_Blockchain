@@ -14,7 +14,6 @@ class BlockChain
     return block
   end
 
-
   def last_block
     return @chain.last
   end
@@ -34,7 +33,6 @@ class BlockChain
 
   def self.instance
    @blockchain ||= self.create
-
   end
 
 end
