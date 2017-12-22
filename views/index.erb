@@ -2,86 +2,80 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>welcome to blockchain</title>
-    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+    <title>Blockpain</title>
     <style>
-      #wrap {
-          /* position: absolute; */
-          z-index: 999999;
-          right: 0;
-          height: 60%;
-          text-align: center;
-          display: table;
-      }
-
-      #inside {
-          width: 505px;
-          height: 300px;
-          /* vertical-align: middle; */
-          /* overflow: scroll; */
-          /* overflow:   auto; */
-          /* position:absolute; */
-          left:0;
-          right:0;
-          /* border:1px solid #000; */
-          overflow:auto;
-          top:0;
-          bottom:3em;
+      .mine{
+        background-color: black;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <h1> welcome to blockpain, nerds</h1>
-  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
 
-    <h3>Mine:</h3>
-    <div id=wrap>
-      <div id=inside>
-        <!-- <% @chain.each do |block| %>
-          <%= block.hashes %> <br>
-        <%end%> -->
-        <% @hashdisplay = "" %>
-        <% @last_block.hashes.each do |hash| %>
-          <%= @hashdisplay = "#{hash}, #{@hashdisplay}"%>
-        <%end%>
-      </div>
+          <h1> welcome to blockpain</h1>
+
+
+          <h3>Mine:</h3>
+          <div class="well mine" >
+            <div id=wrap>
+              <div id=inside>
+                <!-- <% @chain.each do |block| %>
+                  <%= block.hashes %> <br>
+                <%end%> -->
+                <% @hashdisplay = "" %>
+                <% @last_block.hashes.each do |hash| %>
+                  <%= @hashdisplay = "#{hash}, #{@hashdisplay}"%>
+                <%end%>
+              </div>
+            </div>
+          </div>
+
+
+
+          ________________________________________<br><br>
+
+          <h3>Pending transactions:</h3>
+            <% @blockchain.transactions.each do |transaction| %>
+              <%= transaction %>   <br>
+            <%end%>
+          ________________________________________<br><br>
+
+        </div>
+
+          <div class="col-sm-6">
+            <h3> Chain: </h3>
+          <% @chain.each do |block| %>
+            Index: <br>
+            <%= block.index %>   <br>
+            Previous Hash: <br>
+            <%= block.previous_hash unless block.index == 1 %> <br>
+            Timestamp: <br>
+            <%= block.timestamps %>   <br>
+            Transaction: <br>
+            <%= block.transaction unless block.index == 1 %>   <br>
+            Nonce: <br>
+            <%= block.nonce %>   <br>
+            Hash: <br>
+            <%= block.hash %>  <br><br>
+            ******* END OF BLOCK ******* <br><br><br>
+          <%end%>
+
+          <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+          <script>
+          $(document).ready(function(){
+              $("#inside").animate({ scrollTop: 2000000 }, 4000);
+          });
+
+          </script>
+          </div>
+        </div>
+
     </div>
-    ________________________________________<br><br>
-
-    <h3>Pending transactions:</h3>
-      <% @blockchain.transactions.each do |transaction| %>
-        <%= transaction %>   <br>
-      <%end%>
-    ________________________________________<br><br>
-
-
-
-
-    <% @chain.each do |block| %>
-      Index: <br>
-      <%= block.index %>   <br>
-      Previous Hash: <br>
-      <%= block.previous_hash unless block.index == 1 %> <br>
-      Timestamp: <br>
-      <%= block.timestamps %>   <br>
-      Transaction: <br>
-      <%= block.transaction unless block.index == 1 %>   <br>
-      Nonce: <br>
-      <%= block.nonce %>   <br>
-      Hash: <br>
-      <%= block.hash %>  <br><br>
-      ******* END OF BLOCK ******* <br><br><br>
-    <%end%>
-
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-    <script>
-    $(document).ready(function(){
-        $("#inside").animate({ scrollTop: 2000000 }, 4000);
-    });
-
-    </script>
   </body>
 </html>
