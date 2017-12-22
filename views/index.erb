@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>welcome to blockchain</title>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
     <style>
       #wrap {
-          position: absolute;
+          /* position: absolute; */
           z-index: 999999;
           right: 0;
           height: 60%;
@@ -15,13 +15,18 @@
       }
 
       #inside {
-          width: 900px;
+          width: 505px;
           height: 300px;
-          vertical-align: middle;
-          /* transform: rotate(30deg); */
+          /* vertical-align: middle; */
           /* overflow: scroll; */
-          overflow:   auto;
-
+          /* overflow:   auto; */
+          /* position:absolute; */
+          left:0;
+          right:0;
+          /* border:1px solid #000; */
+          overflow:auto;
+          top:0;
+          bottom:3em;
       }
     </style>
   </head>
@@ -33,8 +38,12 @@
     <h3>Mine:</h3>
     <div id=wrap>
       <div id=inside>
-        <% @chain.each do |block| %>
+        <!-- <% @chain.each do |block| %>
           <%= block.hashes %> <br>
+        <%end%> -->
+        <% @hashdisplay = "" %>
+        <% @last_block.hashes.each do |hash| %>
+          <%= @hashdisplay = "#{hash}, #{@hashdisplay}"%>
         <%end%>
       </div>
     </div>
@@ -65,5 +74,10 @@
       ******* END OF BLOCK ******* <br><br><br>
     <%end%>
 
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="jquery.js"></script>
   </body>
 </html>

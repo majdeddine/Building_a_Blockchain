@@ -11,6 +11,7 @@ class App < Sinatra::Base
 
   get '/' do
     @chain = @blockchain.chain.reverse
+    @last_block = @blockchain.last_block
     erb :index
   end
 

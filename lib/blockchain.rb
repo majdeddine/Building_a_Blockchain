@@ -5,7 +5,7 @@ class BlockChain
 
   def initialize
     @chain = [create_genesis_block()]
-    @difficulty = 4
+    @difficulty = 2
     @transactions = []
   end
 

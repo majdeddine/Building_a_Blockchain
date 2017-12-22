@@ -19,8 +19,8 @@
     "url": "https://github.com/majdeddine/Building_a_Blockchain/issues"
   },
   "dependencies": {
-    "socket.io": "*",
-    "express": "*"
+    "express": "*",
+    "jquery": "^3.2.1"
   },
   "homepage": "https://github.com/majdeddine/Building_a_Blockchain#readme"
 }
