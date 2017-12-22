@@ -8,6 +8,9 @@
         background-color: black;
         color: white;
       }
+      #chain{
+        padding-top: 29px;
+      }
     </style>
   </head>
   <body>
@@ -35,17 +38,18 @@
 
 
 
-          ________________________________________<br><br>
+          <div class="well">
 
           <h3>Pending transactions:</h3>
             <% @blockchain.transactions.each do |transaction| %>
               <%= transaction %>   <br>
             <%end%>
-          ________________________________________<br><br>
 
+            </div>
         </div>
 
-          <div class="col-sm-6">
+          <div id= "chain" class="col-sm-6">
+              <div class="well">
             <h3> Chain: </h3>
           <% @chain.each do |block| %>
             Index: <br>
@@ -60,8 +64,9 @@
             <%= block.nonce %>   <br>
             Hash: <br>
             <%= block.hash %>  <br><br>
-            ******* END OF BLOCK ******* <br><br><br>
+
           <%end%>
+          </div>
 
           <script
           src="https://code.jquery.com/jquery-3.2.1.min.js"
